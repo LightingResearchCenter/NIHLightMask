@@ -17,6 +17,7 @@ lux = cell(n,1);
 CLA = cell(n,1);
 CS = cell(n,1);
 activity = cell(n,1);
+subject = cell(n,1);
 
 for i1 = 1:n
     filename = fullfile(directory,listing(i1).name);
@@ -28,9 +29,13 @@ for i1 = 1:n
     CLA{i1} = CLA1(idx);
     CS{i1} = CS1(idx);
     activity{i1} = activity1(idx);
+    % Find subject number
+    expression = 'subject(\d*).*';
+    tokens = regexpi(listing(i1).name,expression,'tokens');
+    subject{i1} = tokens{1};
 end
 
 %% Save imported data
-save('sourceData.mat','time','lux','CLA','CS','activity');
+save('sourceData.mat','time','lux','CLA','CS','activity','subject');
 
 end
