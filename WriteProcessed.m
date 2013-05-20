@@ -1,4 +1,4 @@
-function WriteProcessed(InfoName,DataName)
+function WriteProcessed(InfoName,DataName,SaveName)
 %WRITEPROCESSED Write processed data to text
 
 ProcessedData = ReadRaw(InfoName,DataName);
@@ -12,8 +12,7 @@ activity = ProcessedData.activity;
 timeStr = datestr(time,'dd/mm/yyyy HH:MM:SS');
 
 % create text file
-txtName = [DataName(1:end-4) '_Processed.txt']; % name of text file
-fid = fopen(txtName,'w'); % create text file and open for writing
+fid = fopen(SaveName,'w'); % create text file and open for writing
 % write header row to file
 fprintf(fid,'%s\t%s\t%s\t%s\t%s\r\n','time','lux','CLA','CS','activity');
 % write data to file
