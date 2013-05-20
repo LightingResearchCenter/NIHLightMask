@@ -19,13 +19,13 @@ subject = zeros(n,1);
 % Initialize experiment start and end dates
 sDate = zeros(n,1);
 eDate = zeros(n,1);
-sDate(1) = datenum(2013,3,25);
-eDate(1) = datenum(2013,4,2);
-sDate(2) = datenum(2013,3,25);
-eDate(2) = datenum(2013,4,2);
-sDate(3) = datenum(2013,4,1);
+sDate(1) = datenum(2013,3,26);
+eDate(1) = datenum(2013,4,1);
+sDate(2) = datenum(2013,3,26);
+eDate(2) = datenum(2013,4,1);
+sDate(3) = datenum(2013,4,2);
 eDate(3) = datenum(2013,4,9);
-% sDate(4) = datenum(2013,4,1);
+% sDate(4) = datenum(2013,4,2);
 % eDate(4) = datenum(2013,4,9);
 
 for i1 = 1:n
