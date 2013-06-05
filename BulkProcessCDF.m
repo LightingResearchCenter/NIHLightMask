@@ -1,9 +1,9 @@
-function BulkProcess
+function BulkProcessCDF
 %BULKPROCESS Summary of this function goes here
 %   Detailed explanation goes here
 
 % Select source and output folders
-startPath = fullfile('\\root','projects','NIH Light Mask','daysimeter_data');
+startPath = fullfile('C:','Users','kundlj','My Documents','daysimeter_data');
 rawPath = uigetdir(fullfile(startPath,'raw_files'),...
     'Select folder containing raw files.');
 processedPath = uigetdir(fullfile(startPath,'processed_files'),...
@@ -43,7 +43,7 @@ saveFiles = regexprep(headerFiles,'log_info','processed');
 n = length(headerFiles);
 
 for i1 = 1:n
-    WriteProcessed(fullfile(folderIn,headerFiles{i1}),...
+    WriteProcessedCDF(fullfile(folderIn,headerFiles{i1}),...
         fullfile(folderIn,dataFiles{i1}),...
         fullfile(folderOut,saveFiles{i1}));
 end
