@@ -2,14 +2,14 @@ function ProcessedData = ReadRaw(InfoName,DataName)
 % READRAW processes Daysimeter files that have been downloaded directly
 
 % read the header file
-fid = fopen(InfoName,'r','b');
-I = fread(fid,'uchar');
-fclose(fid);
+fid1 = fopen(InfoName,'r','b');
+I = fread(fid1,'uchar');
+fclose(fid1);
 
 % read the data file
-fid = fopen(DataName,'r','b');
-D = fread(fid,'uint16');
-fclose(fid);
+fid2 = fopen(DataName,'r','b');
+D = fread(fid2,'uint16');
+fclose(fid2);
 
 % find the ID number
 q = find(I==10,4,'first');
@@ -46,7 +46,7 @@ A = A(q);
 time = (1:length(R))/(1/logInterval*60*60*24)+startTime;
 
 % read R,G,B calibration constants
-calibrationFile = fullfile('\\ROOT','projects','Daysimeter and dimesimeter reference files','data','Day12 RGB Values.txt');
+calibrationFile = fullfile('\\ROOT','projects','DaysimeterAndDimesimeterReferenceFiles','data','Day12 RGB Values.txt');
 g = fopen(calibrationFile);
 %find line corresponding to id number
 for i = 1:IDnum
